@@ -10,7 +10,7 @@ def stop_web():
 
 
 def start_web():
-    subprocess.Popen(["python3", "web.py"])
+    subprocess.Popen(["python3", "/root/ElonMusk_bot/web.py"])
 
 answer_list = [
   "You're fired",
