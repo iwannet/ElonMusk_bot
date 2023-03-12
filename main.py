@@ -60,7 +60,7 @@ def bot_login():
 
 def run_bot(reddit, comments_replied_to):
 
-  print("Searching last 1,000 comments")
+  print("Searching last 1,000 comments") 
 
   for comment in reddit.subreddit(sub).comments(limit=1000):
     res = any(ele in comment.body for ele in trigger_list)
