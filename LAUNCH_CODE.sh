@@ -1,1 +1,1 @@
-cd ElonMusk_bot && python3 main.py &
+python3 /root/ElonMusk_bot/main.py &
