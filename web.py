@@ -1,15 +1,16 @@
 from flask import Flask
 from datetime import datetime
 import pytz
+from threading import Thread
 
-app = Flask(__name__)
+app = Flask("")
 
 # Timestamp to keep track of the last time the script was activated
 last_activated = None
 
 # Route to check if the bot is running and display the last activation time
 @app.route('/')
-def check_bot_status():
+def home():
     global last_activated
     if last_activated:
         tz = pytz.timezone('Europe/Brussels')
@@ -21,7 +22,9 @@ def check_bot_status():
     last_activated = datetime.now()
     return message
 
-def run_web():
-    if __name__ == '__main__':
-       app.run(host='0.0.0.0')
-    
+def run():
+    app.run(host='0.0.0.0', port=8080)
+
+def keep_alive():
+    t = Thread(target=run)
+    t.start()
