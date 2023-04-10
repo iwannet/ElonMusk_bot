@@ -2,15 +2,8 @@ import praw
 import os
 import time
 import random
-import subprocess
+from web import *
 
-
-def stop_web():
-    subprocess.run(["pkill", "-f", "web.py"])
-
-
-def start_web():
-    subprocess.Popen(["python3", "/root/ElonMusk_bot/web.py"])
 
 answer_list = [
   "You're fired",
@@ -80,15 +73,11 @@ def run_bot(reddit, comments_replied_to):
         f.write(comment.id + "\n")
 
         sleep()
-        stop_web()
-        time.sleep(1)
-        start_web()
+        run_web()
 
     else:
       print("No Comment found, restarting")
-      stop_web()
-      time.sleep(1)
-      start_web()
+      run_web()
 
   print("\nSearch Completed.")
 
