@@ -2,7 +2,7 @@ import praw
 import os
 import time
 import random
-from web import *
+from web import keep_alive
 
 
 answer_list = [
@@ -72,12 +72,13 @@ def run_bot(reddit, comments_replied_to):
       with open("comments_replied_to.txt", "a") as f:
         f.write(comment.id + "\n")
 
+        keep_alive()
         sleep()
-        run_web()
+        
 
     else:
       print("No Comment found, restarting")
-      run_web()
+      
 
   print("\nSearch Completed.")
 
