@@ -21,6 +21,7 @@ def check_bot_status():
     last_activated = datetime.now()
     return message
 
-if __name__ == '__main__':
-    app.run(host='0.0.0.0')
+def run_web():
+    if __name__ == '__main__':
+       app.run(host='0.0.0.0')
     
